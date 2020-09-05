@@ -1,9 +1,20 @@
 <template>
   <div>
+    <navigation />
     <Nuxt />
   </div>
 </template>
 
+<script>
+import Navigation from '@/components/Navigation'
+
+export default {
+  components: {
+    Navigation
+  }
+}
+
+</script>
 <style>
 html {
   font-family:
