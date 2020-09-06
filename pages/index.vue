@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="container flex flex-col">
     <div class="game-container">
       <nuxt-link v-for="game in games" :key="game.id" :to="'/games/' + game.id" class="block mb-8">
-        <img :src="game.cover.url.replace('t_thumb', 't_cover_big')" alt="cover" class="mx-auto">
+        <img :src="game.cover.url.replace('t_thumb', 't_cover_big')" alt="cover">
         <div>{{ game.name }}</div>
         <div>{{ game.genres[0].name }}</div>
       </nuxt-link>
