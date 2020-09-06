@@ -55,13 +55,28 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    headers: {
+      common: {
+        'user-key': 'd6d28f52d959b6df707a088e255fa149',
+        Accept: 'application/json'
+      }
+    },
+    proxy: true
+  },
+  proxy: {
+    '/igdb': {
+      target: 'https://api-v3.igdb.com',
+      pathRewrite: { '^/igdb': '/' }
+    }
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/

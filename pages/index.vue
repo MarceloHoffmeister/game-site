@@ -28,7 +28,14 @@
 </template>
 
 <script>
-export default {}
+
+export default {
+  async asyncData ({ $axios }) {
+    const { data } = await $axios.get('/igdb/games?fields=name,popularity,genres.name,cover.url&order=popularity:desc&exapand=genres')
+    return { games: data }
+  }
+}
+
 </script>
 
 <style>
