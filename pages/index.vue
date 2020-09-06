@@ -1,28 +1,11 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        game-site
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+    <div class="game-container">
+      <nuxt-link v-for="game in games" :key="game.id" :to="'/games/' + game.id" class="block mb-8">
+        <img :src="game.cover.url.replace('t_thumb', 't_cover_big')" alt="cover" class="mx-auto">
+        <div>{{ game.name }}</div>
+        <div>{{ game.genres[0].name }}</div>
+      </nuxt-link>
     </div>
   </div>
 </template>
