@@ -70,7 +70,7 @@ export default {
   axios: {
     headers: {
       common: {
-        'user-key': 'd6d28f52d959b6df707a088e255fa149',
+        'user-key': process.env.USER_KEY,
         Accept: 'application/json'
       }
     },
@@ -78,7 +78,7 @@ export default {
   },
   proxy: {
     '/igdb': {
-      target: 'https://api-v3.igdb.com',
+      target: process.env.IGDB_API,
       pathRewrite: { '^/igdb': '/' }
     }
   },
